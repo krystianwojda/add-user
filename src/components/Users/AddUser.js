@@ -9,6 +9,7 @@ const AddUser = (props) => {
     const [entredUserName, setEntredUserName] = useState('');
     const [entredUserAge, setEntredUserAge] = useState('');
     const [entredUserHeight, setEntredUserHeight] = useState('');
+    const [entredUserWeight, setEntredUserWeight] = useState('');
 
     const userNameChangeHandler = (event) => {
         setEntredUserName(event.target.value);
@@ -18,6 +19,9 @@ const AddUser = (props) => {
     };
     const userHeightChangeHandler = (event) => {
         setEntredUserHeight(event.target.value);
+    };
+    const userWeightChangeHandler = (event) => {
+        setEntredUserWeight(event.target.value)
     };
 
     const addUserHandler = (event) => {
@@ -32,8 +36,8 @@ const AddUser = (props) => {
                 <input className="userage" type="number" onChange={userAgeChangeHandler}/>
                 <label htmlFor="userheight" >Height (cm)</label>
                 <input className="userheight" type="number" onChange={userHeightChangeHandler}/>
-                <label htmlFor="userheight">Weight (kg)</label>
-                <input className="userweight" type="number"/>
+                <label htmlFor="userweight">Weight (kg)</label>
+                <input className="userweight" type="number" onChange={userWeightChangeHandler}/>
                 <Button type="submit">Add user</Button>
             </form>
         </Card>
