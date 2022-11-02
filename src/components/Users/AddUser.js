@@ -1,6 +1,7 @@
 import React from "react";
 
 import Card from "../UI/Card";
+import Button from "../UI/Button";
 
 import classes from "./AddUser.module.css";
 
@@ -19,7 +20,7 @@ const AddUser = (props) => {
                 <input className="userheight" type="number"/>
                 <label htmlFor="userheight">Weight (kg)</label>
                 <input className="userweight" type="number"/>
-                <button type="submit">Add User</button>
+                <Button type="submit">Add user</Button>
             </form>
         </Card>
     );
