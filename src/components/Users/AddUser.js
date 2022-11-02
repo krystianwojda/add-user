@@ -26,6 +26,12 @@ const AddUser = (props) => {
 
     const addUserHandler = (event) => {
         event.preventDefault();
+        if (entredUserName.trim().length === 0 || entredUserAge.trim().length === 0 || entredUserHeight.trim().length === 0 || entredUserWeight.trim().length === 0) {
+            return;
+        }
+        if (+entredUserAge < 1 || +entredUserHeight < 1 || +entredUserWeight < 1) {
+            return;
+        }
         setEntredUserName('');
         setEntredUserAge('');
         setEntredUserHeight('');
