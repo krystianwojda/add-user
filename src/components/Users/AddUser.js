@@ -26,18 +26,22 @@ const AddUser = (props) => {
 
     const addUserHandler = (event) => {
         event.preventDefault();
+        setEntredUserName('');
+        setEntredUserAge('');
+        setEntredUserHeight('');
+        setEntredUserWeight('');
     };
     return(
         <Card className={classes.input}>
             <form onSubmit={addUserHandler}>
                 <label htmlFor="username">Username</label>
-                <input className="username" type="text" onChange={userNameChangeHandler}/>
+                <input className="username" type="text" onChange={userNameChangeHandler} value={entredUserName}/>
                 <label htmlFor="userage" >Age (years)</label>
-                <input className="userage" type="number" onChange={userAgeChangeHandler}/>
+                <input className="userage" type="number" onChange={userAgeChangeHandler} value={entredUserAge}/>
                 <label htmlFor="userheight" >Height (cm)</label>
-                <input className="userheight" type="number" onChange={userHeightChangeHandler}/>
+                <input className="userheight" type="number" onChange={userHeightChangeHandler} value={entredUserHeight}/>
                 <label htmlFor="userweight">Weight (kg)</label>
-                <input className="userweight" type="number" onChange={userWeightChangeHandler}/>
+                <input className="userweight" type="number" onChange={userWeightChangeHandler} value={entredUserWeight}/>
                 <Button type="submit">Add user</Button>
             </form>
         </Card>
