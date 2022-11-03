@@ -11,7 +11,8 @@ function App() {
                 name: uName,
                 age: uAge,
                 height: uHeight,
-                weight: uWeight
+                weight: uWeight,
+                id: Math.random().toString()
             }];
         });
     };
