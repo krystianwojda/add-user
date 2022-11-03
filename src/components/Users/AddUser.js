@@ -32,6 +32,7 @@ const AddUser = (props) => {
         if (+entredUserAge < 1 || +entredUserHeight < 1 || +entredUserWeight < 1) {
             return;
         }
+        props.onAddUser(entredUserName, entredUserAge, entredUserHeight, entredUserWeight);
         setEntredUserName('');
         setEntredUserAge('');
         setEntredUserHeight('');
