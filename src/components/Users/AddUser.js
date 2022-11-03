@@ -12,6 +12,7 @@ const AddUser = (props) => {
     const [entredUserAge, setEntredUserAge] = useState('');
     const [entredUserHeight, setEntredUserHeight] = useState('');
     const [entredUserWeight, setEntredUserWeight] = useState('');
+    const [error, setError] = useState();
 
     const userNameChangeHandler = (event) => {
         setEntredUserName(event.target.value);
@@ -32,9 +33,17 @@ const AddUser = (props) => {
     const addUserHandler = (event) => {
         event.preventDefault();
         if (entredUserName.trim().length === 0 || entredSurname.trim().length === 0 || entredUserAge.trim().length === 0 || entredUserHeight.trim().length === 0 || entredUserWeight.trim().length === 0) {
+            setError({
+                title: "Wystąpił problem",
+                message: "Proszę podać prawidłowe dane, nie wszystkie pola zostały wypełnione"
+            });
             return;
         }
         if (+entredUserAge < 1 || +entredUserHeight < 1 || +entredUserWeight < 1) {
+            setError({
+                title: "Wystąpił prblem",
+                message: "Proszę podać prawidłowy wiek / wzrost / wage"
+            });
             return;
         }
         props.onAddUser(entredUserName, entredSurname, entredUserAge, entredUserHeight, entredUserWeight);
@@ -46,7 +55,7 @@ const AddUser = (props) => {
     };
     return(
         <div>
-            <ErrorModal title={"Wystąpił problem"} message={"Coś poszło nie tak, spóbuj ponownie!"}></ErrorModal>
+            {error && <ErrorModal title={error.title} message={error.message}></ErrorModal>}
             <Card className={classes.input}>
                 <form onSubmit={addUserHandler}>
                     <label htmlFor="username">Username</label>
